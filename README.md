@@ -2,6 +2,11 @@ Student Assignment Tracker API - Documentation
 
 This is a backend RESTful API built with Node.js and Express that allows students to create, retrieve, update, filter, and delete academic assignments. It demonstrates core backend development principles, including file-based data storage, asynchronous operations, and email notifications.
 
+Live Features Demonstrated
+- CRUD API
+- Email Notifications
+- Deadline Reminder System
+
 
 Table of Contents
 1. [Project Overview](project-overview)  
