@@ -112,105 +112,187 @@ Important: Use a Gmail App Password, not your real Gmail password.
 API Endpoints
 
 1. Create Assignment
+   
     URL: /api/assignments
+   
     Method: POST
+   
     Body (JSON):
+   
         {
+   
         "title": "Math Homework",
+   
         "subject": "Mathematics",
+   
         "deadline": "2026-03-20",
+   
         "email": "student@example.com"
+   
         }
+   
+	
 	Response:
+
         {
+   
         "message": "Assignment created successfully",
+   
         "assignment": {
+   
             "id": 1773700643657,
+   
             "title": "Math Homework",
+   
             "subject": "Mathematics",
+   
             "deadline": "2026-03-20",
+   
             "status": "pending",
+   
             "email": "student@example.com"
+   
         }
+   
         }
+   
 
 
 
-2. Get All Assignments (Optional Filtering)
+3. Get All Assignments (Optional Filtering)
+   
 	URL: /api/assignments
+
 	Method: GET
+
 	Query Parameters (Optional):
+
         status – "pending" or "completed"
+   
         subject – Filter by subject
+   
 	Response:
+
         {
+   
         "total": 2,
+   
         "assignments": [
+   
 		{ "id": 1, "title": "...", ... },
+
 		{ "id": 2, "title": "...", ... }
+
 		]
+
         }
+   
 
 
 
-3. Mark Assignment as Completed
+5. Mark Assignment as Completed
+   
 	URL: /api/assignments/:id
+
 	Method: PUT
+
 	Response:
+
         {
+   
         "message": "Assignment marked as completed",
+   
         "assignment": {
+   
          "id": 1,
+   
          "title": "Math Homework",
+   
          "status": "completed",
+   
         }
+   
         }
+   
 
 
 
-4. Delete Assignment
+7. Delete Assignment
+   
 	URL: /api/assignments/:id
+
 	Method: DELETE
+
 	Response:
+
         {
+   
         "message": "Assignment deleted successfully"
+   
         }
+   
 
 
 
-5. Check Deadlines and Send Reminders
+9. Check Deadlines and Send Reminders
+    
 	URL: /api/assignments/check-deadlines
+
 	Method: GET
+
 	Response (When reminders sent):
+
         {
+   
         "remindersSent": 1,
+   
         "message": "Reminder emails sent successfully."
+   
         }
+   
 	Response (When none qualify):
+
         {
+   
         "remindersSent": 0,
+   
         "message": "No pending assignments due within the next 24 hours."
+   
         }
+   
     Testing
+   
         Use Postman or browser for GET requests.
+   
         Test POST, PUT, DELETE, and reminders endpoints.
+   
         Verify emails are sent to the address in the assignment.
+   
 
 
 
 Features
 	CRUD operations for assignments
+	
 	Filtering by status and subject
+	
 	Automated email notifications on creation and before deadline
+	
 	File-based JSON storage (no database required)
+	
 	Proper error handling
+	
 	Professional console logging (optional)
+	
 
 
 
 Notes
 	No frontend included — focus is on backend fundamentals
+	
 	No authentication or user roles implemented
+	
 	Assignments are persisted in assignments.json
+	
 	Deadline reminder only considers "pending" assignments
 
