@@ -2,10 +2,12 @@ Student Assignment Tracker API - Documentation
 
 This is a backend RESTful API built with Node.js and Express that allows students to create, retrieve, update, filter, and delete academic assignments. It demonstrates core backend development principles, including file-based data storage, asynchronous operations, and email notifications.
 
+
 Live Features Demonstrated
 - CRUD API
 - Email Notifications
 - Deadline Reminder System
+
 
 
 Table of Contents
@@ -18,6 +20,7 @@ Table of Contents
 7. [Testing](testing)  
 8. [Features](features)  
 9. [Notes](notes)  
+
 
 
 Project Overview
@@ -34,7 +37,9 @@ This API allows students to manage their assignments. Each assignment includes:
 The API supports CRUD operations and automated deadline reminder emails.
 
 
+
 Technologies Used
+
 - Node.js (v24+)  
 - Express  
 - Nodemailer (for email notifications)  
@@ -42,45 +47,70 @@ Technologies Used
 - File-based JSON storage (`assignments.json`)  
 
 
+
 Folder Structure
+
     assignment-tracker/
+	
     │
+	
     ├── server.js
+	
     ├── assignments.json
+	
     ├── routes/
+	
     │ └── assignments.js
+	
     ├── services/
+	
     │ └── emailService.js
+	
     ├── utils/
+	
     │ └── fileHandler.js
+	
     ├── .env
+	
     ├── README.md
+	
 
 
 Getting Started
+
 1. Clone the repository:
 
         git clone <repository-url>
         cd assignment-tracker
 
+
 2.	Install dependencies:
         npm install
 
+
 3.	Create a .env file (see below for variables).
+
 
 4.	Start the server:
         node server.js
     The API will run on: http://localhost:3000/
 
 
+
 Environment Variables
+
 Create a .env file in the root folder with:
-    EMAIL_USER=yourgmail@gmail.com
-    EMAIL_PASS=your_gmail_app_password
+
+	EMAIL_USER=yourgmail@gmail.com
+    
+	EMAIL_PASS=your_gmail_app_password
+
 Important: Use a Gmail App Password, not your real Gmail password.
 
 
+
 API Endpoints
+
 1. Create Assignment
     URL: /api/assignments
     Method: POST
@@ -105,6 +135,7 @@ API Endpoints
         }
 
 
+
 2. Get All Assignments (Optional Filtering)
 	URL: /api/assignments
 	Method: GET
@@ -115,10 +146,11 @@ API Endpoints
         {
         "total": 2,
         "assignments": [
-            { "id": 1, "title": "...", ... },
-            { "id": 2, "title": "...", ... }
-        ]
+		{ "id": 1, "title": "...", ... },
+		{ "id": 2, "title": "...", ... }
+		]
         }
+
 
 
 3. Mark Assignment as Completed
@@ -128,12 +160,12 @@ API Endpoints
         {
         "message": "Assignment marked as completed",
         "assignment": {
-            "id": 1,
-            "title": "Math Homework",
-            "status": "completed",
-            ...
+         "id": 1,
+         "title": "Math Homework",
+         "status": "completed",
         }
         }
+
 
 
 4. Delete Assignment
@@ -143,6 +175,7 @@ API Endpoints
         {
         "message": "Assignment deleted successfully"
         }
+
 
 
 5. Check Deadlines and Send Reminders
@@ -164,6 +197,7 @@ API Endpoints
         Verify emails are sent to the address in the assignment.
 
 
+
 Features
 	CRUD operations for assignments
 	Filtering by status and subject
@@ -171,6 +205,7 @@ Features
 	File-based JSON storage (no database required)
 	Proper error handling
 	Professional console logging (optional)
+
 
 
 Notes
